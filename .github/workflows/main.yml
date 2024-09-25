@@ -28,8 +28,8 @@ jobs:
     - name: Run the application
       run: ./HelloWorld
 
-    - name: Run clang-tidy
-      run: clang-tidy main.cpp -- -std=c++17    
+    - name: Run clang_tidy
+      run: clang_tidy main.cpp -- -std=c++17    
 
     - name: Zip the executable
       run: zip setup.zip HelloWorld
