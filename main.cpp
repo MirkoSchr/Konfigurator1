@@ -37,7 +37,8 @@ public:
         innenausstattungPreise = {
             {"Stoff", 0.0},
             {"Leder, Schwarz", 2000.0},
-            {"Leder, Beige", 2500.0}
+            {"Leder, Beige", 2500.0},
+            {"Leder, Rot/Schwarz", 3000}
         };
     }
 
