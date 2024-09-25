@@ -9,12 +9,14 @@ private:
     std::string motor;
     std::string felgen;
     std::string innenausstattung;
+    std::string außenausstattung;
 
     // Preise für die Features
     double basisPreis;
     std::map<std::string, double> motorPreise;
     std::map<std::string, double> felgenPreise;
     std::map<std::string, double> innenausstattungPreise;
+    std::map<std::string, double> außenausstattungPreise;
 
 public:
     // Konstruktor
@@ -40,6 +42,11 @@ public:
             {"Leder, Beige", 2500.0},
             {"Leder, Rot/Schwarz", 3000}
         };
+        
+        außenausstattungPreise = {
+            {"Carbonelemente", 5000},
+            {"Panoramadach", 3000},
+            {"Außenspiegel-Sport", 1500}
     }
 
     // Set-Methoden für die Features
@@ -69,6 +76,13 @@ public:
         } else {
             std::cout << "Ungültige Innenausstattung gewählt!\n";
         }
+
+    void setAußenausstattung(const std::string&aa) {
+        if (außenausstattungPreise.find(aa) != außenausstattungPreise.end()) {
+            außenausstattung = aa;
+        } else {
+            std::cout << "Ungültige Außenausstattung gewählt!\n";
+        }
     }
 
     // Methode zur Berechnung des Gesamtpreises
@@ -88,18 +102,23 @@ public:
             gesamtPreis += innenausstattungPreise.at(innenausstattung);
         }
 
+        if (außenausstattungPreise.find(außenausstattung) != außenausstattungPreise.end()) {
+            gesamtPreis += außenausstattungPreise.at(außenausstattung);
+        }
+
         return gesamtPreis;
     }
 
     // Methode zur Darstellung der Konfiguration
     void zeigeKonfiguration() const {
         std::cout << "Fahrzeugkonfiguration:\n"
-                  << "Modell: " << modell << "\n"
-                  << "Farbe: " << farbe << "\n"
-                  << "Motor: " << motor << " (Preis: " << motorPreise.at(motor) << " Euro)\n"
-                  << "Felgen: " << felgen << " (Preis: " << felgenPreise.at(felgen) << " Euro)\n"
-                  << "Innenausstattung: " << innenausstattung << " (Preis: " << innenausstattungPreise.at(innenausstattung) << " Euro)\n"
-                  << "Gesamtpreis: " << berechneGesamtPreis() << " Euro\n";
+                    << "Modell: " << modell << "\n"
+                    << "Farbe: " << farbe << "\n"
+                    << "Motor: " << motor << " (Preis: " << motorPreise.at(motor) << " Euro)\n"
+                    << "Felgen: " << felgen << " (Preis: " << felgenPreise.at(felgen) << " Euro)\n"
+                    << "Innenausstattung: " << innenausstattung << " (Preis: " << innenausstattungPreise.at(innenausstattung) << " Euro)\n"
+                    << "Außenausstattung: " << außenausstattung << " (Preis: " << außenausstattungPreise.at(außenausstattung) << " Euro \n"
+                    << "Gesamtpreis: " << berechneGesamtPreis() << " Euro\n";
     }
 };
 
@@ -112,6 +131,7 @@ int main() {
     config.setMotor("V6 Benzin");
     config.setFelgen("20 Zoll Chromfelgen");
     config.setInnenausstattung("Leder, Schwarz");
+    config.setAußenausstattung("Carbonelemente");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
     config.zeigeKonfiguration();
