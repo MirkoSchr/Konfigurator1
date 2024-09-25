@@ -46,6 +46,7 @@ public:
             {"Carbonelemente", 5000.0},
             {"Panoramadach", 2000.0},
             {"Außenspiegel-Sport", 1500.0}
+        };
     }
 
     // Set-Methoden für die Features
@@ -137,4 +138,3 @@ int main() {
 
     return 0;
 }
-};
