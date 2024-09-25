@@ -137,4 +137,4 @@ int main() {
     config.zeigeKonfiguration();
 
     return 0;
-}}
+}
