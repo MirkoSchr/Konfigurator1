@@ -47,42 +47,43 @@ public:
             {"Carbonelemente", 5000},
             {"Panoramadach", 3000},
             {"Außenspiegel-Sport", 1500}
-    }
+        }
 
     // Set-Methoden für die Features
     void setFarbe(const std::string& f) {
         farbe = f;
-    }
+        }
 
     void setMotor(const std::string& mo) {
         if (motorPreise.find(mo) != motorPreise.end()) {
             motor = mo;
         } else {
             std::cout << "Ungültiger Motor gewählt!\n";
+            }
         }
-    }
 
     void setFelgen(const std::string& fe) {
         if (felgenPreise.find(fe) != felgenPreise.end()) {
             felgen = fe;
         } else {
             std::cout << "Ungültige Felgen gewählt!\n";
+            }
         }
-    }
 
     void setInnenausstattung(const std::string& ia) {
         if (innenausstattungPreise.find(ia) != innenausstattungPreise.end()) {
             innenausstattung = ia;
         } else {
             std::cout << "Ungültige Innenausstattung gewählt!\n";
+            }
         }
-    }
             
     void setAußenausstattung(const std::string&aa) {
         if (außenausstattungPreise.find(aa) != außenausstattungPreise.end()) {
             außenausstattung = aa;
         } else {
             std::cout << "Ungültige Außenausstattung gewählt!\n";
+            }
         }
     }
 
