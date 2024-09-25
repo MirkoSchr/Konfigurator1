@@ -80,6 +80,7 @@ public:
 
     void setAussenausstattung(const std::string& aa) {
         if (aussenausstattungPreise.find(aa) != aussenausstattungPreise.end()) {
+            aussenausstattung = aa;
         } else {
             std::cout << "Ungültige Außenausstattung gewählt!\n";
         }
