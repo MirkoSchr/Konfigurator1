@@ -9,14 +9,14 @@ private:
     std::string motor;
     std::string felgen;
     std::string innenausstattung;
-    std::string außenausstattung;
+    std::string aussenausstattung;
 
     // Preise für die Features
     double basisPreis;
     std::map<std::string, double> motorPreise;
     std::map<std::string, double> felgenPreise;
     std::map<std::string, double> innenausstattungPreise;
-    std::map<std::string, double> außenausstattungPreise;
+    std::map<std::string, double> aussenausstattungPreise;
 
 public:
     // Konstruktor
@@ -43,7 +43,7 @@ public:
             {"Leder, Rot/Schwarz", 3000}
         };
         
-        außenausstattungPreise = {
+        aussenausstattungPreise = {
             {"Carbonelemente", 5000},
             {"Panoramadach", 3000},
             {"Außenspiegel-Sport", 1500}
@@ -78,7 +78,7 @@ public:
             }
         }
             
-    void setAußenausstattung(const std::string&aa) {
+    void setAussenausstattung(const std::string&aa) {
         if (außenausstattungPreise.find(aa) != außenausstattungPreise.end()) {
             außenausstattung = aa;
         } else {
@@ -104,8 +104,8 @@ public:
             gesamtPreis += innenausstattungPreise.at(innenausstattung);
         }
 
-        if (außenausstattungPreise.find(außenausstattung) != außenausstattungPreise.end()) {
-            gesamtPreis += außenausstattungPreise.at(außenausstattung);
+        if (aussenausstattungPreise.find(aussenausstattung) != aussenausstattungPreise.end()) {
+            gesamtPreis += aussenausstattungPreise.at(aussenausstattung);
         }
 
         return gesamtPreis;
@@ -133,7 +133,7 @@ int main() {
     config.setMotor("V6 Benzin");
     config.setFelgen("20 Zoll Chromfelgen");
     config.setInnenausstattung("Leder, Schwarz");
-    config.setAußenausstattung("Carbonelemente");
+    config.setAussenausstattung("Carbonelemente");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
     config.zeigeKonfiguration();
