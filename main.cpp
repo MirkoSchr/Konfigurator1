@@ -76,7 +76,8 @@ public:
         } else {
             std::cout << "Ungültige Innenausstattung gewählt!\n";
         }
-
+    }
+            
     void setAußenausstattung(const std::string&aa) {
         if (außenausstattungPreise.find(aa) != außenausstattungPreise.end()) {
             außenausstattung = aa;
