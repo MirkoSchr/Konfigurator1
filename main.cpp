@@ -9,12 +9,14 @@ private:
     std::string motor;
     std::string felgen;
     std::string innenausstattung;
+    std::string aussenausstattung;
 
     // Preise für die Features
     double basisPreis;
     std::map<std::string, double> motorPreise;
     std::map<std::string, double> felgenPreise;
     std::map<std::string, double> innenausstattungPreise;
+    std::map<std::string, double> aussenausstattungPreise;
 
 public:
     // Konstruktor
@@ -39,6 +41,11 @@ public:
             {"Leder, Schwarz", 2000.0},
             {"Leder, Beige", 2500.0}
         };
+
+        aussenausstattungPreise = {
+            {"Carbonelemente", 5000.0},
+            {"Panoramadach", 2000.0},
+            {"Außenspiegel-Sport", 1500.0}
     }
 
     // Set-Methoden für die Features
@@ -70,6 +77,13 @@ public:
         }
     }
 
+    void setAussenausstattung(const std::string& aa) {
+        if (aussenausstattungPreise.find(aa) != aussenausstattungPreise.end()) {
+        } else {
+            std::cout << "Ungültige Außenausstattung gewählt!\n";
+        }
+    }
+            
     // Methode zur Berechnung des Gesamtpreises
     double berechneGesamtPreis() const {
         double gesamtPreis = basisPreis;
@@ -87,6 +101,10 @@ public:
             gesamtPreis += innenausstattungPreise.at(innenausstattung);
         }
 
+        if (aussenausstattungPreise.find(aussenausstattung) != aussenausstattungPreise.end()) {
+            gesamtPreis += aussenausstattungPreise.at(aussenausstattung);
+        }
+
         return gesamtPreis;
     }
 
@@ -98,6 +116,7 @@ public:
                   << "Motor: " << motor << " (Preis: " << motorPreise.at(motor) << " Euro)\n"
                   << "Felgen: " << felgen << " (Preis: " << felgenPreise.at(felgen) << " Euro)\n"
                   << "Innenausstattung: " << innenausstattung << " (Preis: " << innenausstattungPreise.at(innenausstattung) << " Euro)\n"
+                  << "Außenausstattung: " << aussenausstattung << " (Preis: " << aussenausstattungPreise.at(aussenausstattung) << " Euro\n"
                   << "Gesamtpreis: " << berechneGesamtPreis() << " Euro\n";
     }
 };
@@ -111,6 +130,7 @@ int main() {
     config.setMotor("V6 Benzin");
     config.setFelgen("20 Zoll Chromfelgen");
     config.setInnenausstattung("Leder, Schwarz");
+    config.setAussenausstattung("Carbonelemente");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
     config.zeigeKonfiguration();
