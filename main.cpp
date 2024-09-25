@@ -47,7 +47,7 @@ public:
             {"Carbonelemente", 5000},
             {"Panoramadach", 3000},
             {"Außenspiegel-Sport", 1500}
-        }
+        };
 
     // Set-Methoden für die Features
     void setFarbe(const std::string& f) {
