@@ -111,7 +111,7 @@ int main() {
     config.setFarbe("Weiß");
     config.setMotor("V6 Benzin");
     config.setFelgen("20 Zoll Chromfelgen");
-    config.setInnenausstattung("Leder, Schwarz");
+    config.setInnenausstattung("Leder, Schwar");
 
     // Konfiguration anzeigen und Gesamtpreis berechnen
     config.zeigeKonfiguration();
