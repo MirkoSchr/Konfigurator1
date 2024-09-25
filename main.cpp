@@ -85,7 +85,7 @@ public:
             std::cout << "Ungültige Außenausstattung gewählt!\n";
             }
         }
-    }
+    
 
     // Methode zur Berechnung des Gesamtpreises
     double berechneGesamtPreis() const {
